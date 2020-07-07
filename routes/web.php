@@ -15,4 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+//----------------------------------------------------------------
+
+route::get('/answers', 'AnswerController@index');
+
+//----------------------------------------------------------------
+
+route::get('/questions', 'QuestionController@index')->name('questions');
+route::get('/questions/{id}', 'QuestionController@show')->where('id','[0-9]+')->name('question_id');
